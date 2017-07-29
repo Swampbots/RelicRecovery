@@ -13,5 +13,4 @@ public class ALegitimateOpModeRegister {
         // Register all the OpModes
         manager.register("Test Mode", ALegitimateClass.class);
     }
-
 }
