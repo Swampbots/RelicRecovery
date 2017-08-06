@@ -33,13 +33,14 @@ public class BeetleBotHardware {
 //
 //    // Sensor objects
 //    public TouchSensor frontTouch           = null;
-//    public TouchSensor debugTouch           = null;
+    public TouchSensor debugTouch           = null;
 //
 //    public AnalogInput sparkfunLeft         = null;
 //    public AnalogInput sparkfunRight        = null;
 //
 //    public OpticalDistanceSensor leftODS    = null;
 //    public OpticalDistanceSensor rightODS   = null;
+    public OpticalDistanceSensor testODS     = null;
 //
 //    public ColorSensor colorSensor          = null;
 
@@ -80,15 +81,18 @@ public class BeetleBotHardware {
 //
 //        // Get the sensors
 //        frontTouch      = hwMap.touchSensor.get("fronttouch");
-//        debugTouch      = hwMap.touchSensor.get("debugtouch");
+        debugTouch      = hwMap.touchSensor.get("debugtouch");
 //
 //        sparkfunLeft    = hwMap.analogInput.get("sparkfunLightSensor1");
 //        sparkfunRight   = hwMap.analogInput.get("sparkfunLightSensor2");
 //
 //        leftODS         = hwMap.opticalDistanceSensor.get("leftODS");
 //        rightODS        = hwMap.opticalDistanceSensor.get("rightODS");
+        testODS         = hwMap.opticalDistanceSensor.get("testODS");
 //
 //        colorSensor     = hwMap.colorSensor.get("colorsensor");
+
+
 
 
 

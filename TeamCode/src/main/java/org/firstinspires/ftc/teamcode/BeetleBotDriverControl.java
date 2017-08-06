@@ -49,6 +49,7 @@ public class BeetleBotDriverControl extends OpMode {
     // Runs repeatedly after the driver presses start.
     @Override
     public void loop() {
+
         // Handle speed modifiers
         if(gamepad1.left_bumper)        driverSpeedMod = FAST;
         else if(gamepad1.right_bumper)  driverSpeedMod = SLOW;
@@ -69,5 +70,9 @@ public class BeetleBotDriverControl extends OpMode {
         telemetry.addData("Driver Speed Mod",  driverSpeedMod);
         telemetry.addData("Utility Speed Mod",  utilitySpeedMod);
         telemetry.addLine();
+        telemetry.addData("Touch sensor", hardware.debugTouch.isPressed());
+        telemetry.addLine();
+        telemetry.addData("Test ODS", hardware.testODS.getLightDetected());
+
     }
 }

@@ -14,27 +14,30 @@ public class PaulTest extends LinearOpMode {
 
         telemetry.addLine("Initializing hardware... do not press play!");
         telemetry.update();
-        TileRunner hardware = new TileRunner(); // hardwareTileRunner
+        BeetleBotHardware hardware = new BeetleBotHardware(); // hardwareTileRunner
         telemetry.addLine("Hardware initialized. Press play to start.");
         telemetry.update();
+
+        hardware.init(hardwareMap);
 
         waitForStart();
 
         telemetry.addLine("paul is here");
-        telemetry.update(); // :   ^}
+        telemetry.update(); // :                                                                                                                  ^}
         sleep(1000);
 
-        if(hardware.particleServo != null) {
-            hardware.particleServo.setPosition(0.4);
-        } else {
-            telemetry.addLine("particleServo is null");
-            telemetry.update();
-        }
+//        if(hardware.particleServo != null) {
+//            hardware.particleServo.setPosition(0.4);
+//        } else {
+//            telemetry.addLine("particleServo is null");
+//            telemetry.update();
+//        }
 
         sleep(2000);
 
         while (opModeIsActive()) {
-
+            telemetry.addLine("Success!!!");
+            telemetry.update();
         }
     }
 }
