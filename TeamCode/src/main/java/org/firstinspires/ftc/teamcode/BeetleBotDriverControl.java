@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 /**
+ * https://github.com/Swampbots/2017offSeason.git
  * Created by kawaiiPlat on 7/29/2017.
  */
 
@@ -16,7 +17,6 @@ public class BeetleBotDriverControl extends OpMode {
     // Speed modifer variables
     double driverSpeedMod               = NORMAL;
     double utilitySpeedMod              = NORMAL;
-
     public static final double SLOW     = 0.4;
     public static final double NORMAL   = 0.7;
     public static final double FAST     = 1.0;
