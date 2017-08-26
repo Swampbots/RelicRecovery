@@ -62,8 +62,17 @@ public class ALegitimateClass extends OpMode {
         hardware.leftDrive1.setPower(gamepad1.left_stick_y * driverSpeedMod);
         hardware.leftDrive2.setPower(gamepad1.left_stick_y * driverSpeedMod);
 
-        hardware.rightDrive1.setPower(gamepad1.right_stick_y * utilitySpeedMod);
-        hardware.rightDrive2.setPower(gamepad1.right_stick_y * utilitySpeedMod);
+        hardware.rightDrive1.setPower(gamepad1.right_stick_y * driverSpeedMod);
+        hardware.rightDrive2.setPower(gamepad1.right_stick_y * driverSpeedMod);
+
+        hardware.lifter.setPower(gamepad2.right_stick_y * utilitySpeedMod);
+
+        if(gamepad2.x)
+            hardware.particleServo.setPosition(0.3);
+        else if(gamepad2.y)
+            hardware.particleServo.setPosition(0.5);
+        else
+            hardware.particleServo.setPosition(0.4);
 
         // Update telemetry
         telemetry.addData("Runtime", getRuntime());
