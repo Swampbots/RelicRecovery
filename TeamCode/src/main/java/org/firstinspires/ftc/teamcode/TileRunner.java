@@ -20,9 +20,24 @@ public class TileRunner {
     public final double SLOW    = 0.4;
     public final double NORMAL  = 0.7;
     public final double FAST    = 1.0;
+    private final double POWER_THRESHOLD = 0.95;
 
-    double driverSpeedMod       = NORMAL;
-    double utilitySpeedMod      = NORMAL;
+//    public final double POWER_CONVERSION = 10.0;
+
+    public double driverSpeedMod       = NORMAL;
+    public double utilitySpeedMod      = NORMAL;
+
+    private double leftPower = 0;
+    private double rightPower = 0;
+
+//    private double leftPrevMotorInput = 0;
+//    private double rightPrevMotorInput = 0;
+//
+//    private double leftMotorInput = 0;
+//    private double rightMotorInput = 0;
+//
+//    private double leftStep = 0.0;
+//    private double rightStep = 0.0;
 
     // Motor objects
     public DcMotor leftDrive1   = null;
@@ -118,6 +133,52 @@ public class TileRunner {
 
         rightDrive1.setMode (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightDrive2.setMode (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    }
+
+
+    /////////////////////////////////////
+    // TeleOp variables
+    /////////////////////////////////////
+
+
+    public void rampDrive(float leftStickY, float rightStickY) {
+
+        leftPower = ((leftStickY + leftDrive1.getPower()) / 2);
+        rightPower = ((rightStickY + rightDrive1.getPower()) / 2);
+
+        if( (leftPower / leftStickY ) >= POWER_THRESHOLD) {
+            leftDrive1.setPower(leftPower);
+            leftDrive2.setPower(leftPower);
+        }
+
+        if( (rightPower / rightStickY ) >= POWER_THRESHOLD) {
+            rightDrive1.setPower(rightPower);
+            rightDrive2.setPower(rightPower);
+        }
+
+//        if(leftStickY > leftPrevMotorInput) {
+//            leftStep ++;
+//        } else if(leftStickY < leftPrevMotorInput) {
+//            leftStep --;
+//        }
+//
+//        if(rightStickY > rightPrevMotorInput) {
+//            rightStep ++;
+//        } else if(rightStickY < rightPrevMotorInput) {
+//            rightStep --;
+//        }
+//
+//        leftMotorInput = leftStep / POWER_CONVERSION;
+//        rightMotorInput = rightStep / POWER_CONVERSION;
+//
+//        leftPrevMotorInput = leftMotorInput;
+//        rightPrevMotorInput = rightMotorInput;
+//
+//        leftDrive1.setPower(leftMotorInput * driverSpeedMod);
+//        leftDrive2.setPower(leftMotorInput * driverSpeedMod);
+//
+//        rightDrive1.setPower(rightMotorInput * driverSpeedMod);
+//        rightDrive2.setPower(rightMotorInput * driverSpeedMod);
     }
 
     /***

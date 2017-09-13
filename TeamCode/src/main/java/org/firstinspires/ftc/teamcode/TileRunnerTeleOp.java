@@ -25,7 +25,6 @@ public class TileRunnerTeleOp extends OpMode {
         telemetry.update();
     }
 
-
     @Override
     public void init_loop() {}
 
@@ -45,11 +44,13 @@ public class TileRunnerTeleOp extends OpMode {
         else                            hardware.utilitySpeedMod = hardware.NORMAL;
 
         // Handle drive motors
-        hardware.leftDrive1.setPower(gamepad1.left_stick_y * hardware.driverSpeedMod);
-        hardware.leftDrive2.setPower(gamepad1.left_stick_y * hardware.driverSpeedMod);
+        hardware.rampDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
 
-        hardware.rightDrive1.setPower(gamepad1.right_stick_y * hardware.driverSpeedMod);
-        hardware.rightDrive2.setPower(gamepad1.right_stick_y * hardware.driverSpeedMod);
+//        hardware.leftDrive1.setPower(gamepad1.left_stick_y * hardware.driverSpeedMod);
+//        hardware.leftDrive2.setPower(gamepad1.left_stick_y * hardware.driverSpeedMod);
+//
+//        hardware.rightDrive1.setPower(gamepad1.right_stick_y * hardware.driverSpeedMod);
+//        hardware.rightDrive2.setPower(gamepad1.right_stick_y * hardware.driverSpeedMod);
 
 
         // Handle servos
