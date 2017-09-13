@@ -4,23 +4,25 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 /**
- * Created by captainFlareon 6/10/2017.
+ * https://github.com/Swampbots/2017offSeason.git
+ * Created by kawaiiPlat on 7/29/2017.
  */
 
-@TeleOp(name = "Driver Control", group = "TeleOp")
-public class ALegitimateClass extends OpMode {
+@TeleOp(name = "Beetle Drive", group = "TeleOp")
+public class DemoBotTeleOp extends OpMode {
 
     // Hardware map initialization.
-    ALegitimateHardwareClass hardware = new ALegitimateHardwareClass();
+    DemoBot hardware = new DemoBot();
+
     // Speed modifer variables
     double driverSpeedMod               = NORMAL;
     double utilitySpeedMod              = NORMAL;
-
     public static final double SLOW     = 0.4;
     public static final double NORMAL   = 0.7;
     public static final double FAST     = 1.0;
 
 
+    // Runs once when the driver presses init.
     @Override
     public void init() {
 
@@ -34,16 +36,20 @@ public class ALegitimateClass extends OpMode {
     }
 
 
+    // Runs repeatedly after the driver presses init.
     @Override
     public void init_loop() {}
 
 
+    // Runs once when the driver presses start.
     @Override
     public void start() {}
 
 
+    // Runs repeatedly after the driver presses start.
     @Override
     public void loop() {
+
         // Handle speed modifiers
         if(gamepad1.left_bumper)        driverSpeedMod = FAST;
         else if(gamepad1.right_bumper)  driverSpeedMod = SLOW;
@@ -55,34 +61,18 @@ public class ALegitimateClass extends OpMode {
 
         // Handle drive motors
         hardware.leftDrive1.setPower(gamepad1.left_stick_y * driverSpeedMod);
-        hardware.leftDrive2.setPower(gamepad1.left_stick_y * driverSpeedMod);
 
-        hardware.rightDrive1.setPower(gamepad1.right_stick_y * driverSpeedMod);
-        hardware.rightDrive2.setPower(gamepad1.right_stick_y * driverSpeedMod);
-
-        hardware.lifter.setPower(gamepad2.right_stick_y * utilitySpeedMod);
-
-        if(gamepad2.x)
-            hardware.particleServo.setPosition(0.3);
-        else if(gamepad2.y)
-            hardware.particleServo.setPosition(0.5);
-        else
-            hardware.particleServo.setPosition(0.4);
+        hardware.rightDrive1.setPower(gamepad1.right_stick_y * utilitySpeedMod);
 
         // Update telemetry
         telemetry.addData("Runtime", getRuntime());
         telemetry.addLine();
-        telemetry.addData("Left ODS", hardware.leftODS.getLightDetected());
-        telemetry.addData("RIght ODS", hardware.rightODS.getLightDetected());
-        telemetry.addLine();
-        telemetry.addData("Front touch sensor", hardware.frontTouch);
-        telemetry.addData("Debug touch sensor", hardware.debugTouch);
-        telemetry.addLine();
         telemetry.addData("Driver Speed Mod",  driverSpeedMod);
         telemetry.addData("Utility Speed Mod",  utilitySpeedMod);
         telemetry.addLine();
-        telemetry.addData("Blue", hardware.colorSensor.blue());
-        telemetry.addData("Red", hardware.colorSensor.red());
-        telemetry.update();
+        telemetry.addData("Touch sensor", hardware.debugTouch.isPressed());
+        telemetry.addLine();
+        telemetry.addData("Test ODS", hardware.testODS.getLightDetected());
+
     }
 }

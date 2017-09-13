@@ -7,13 +7,12 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  * Created by captainFlareon 6/10/2017.
  */
 
-@TeleOp(name = "Test Op", group = "Test")
-public class TestOp extends OpMode {
+@TeleOp(name = "Driver Control", group = "TeleOp")
+public class TileRunnerTeleOp extends OpMode {
 
     // Hardware map initialization.
     TileRunner hardware = new TileRunner();
-
-    // Speed modifier variables
+    // Speed modifer variables
     double driverSpeedMod               = NORMAL;
     double utilitySpeedMod              = NORMAL;
 
@@ -22,11 +21,8 @@ public class TestOp extends OpMode {
     public static final double FAST     = 1.0;
 
 
-    // Runs once when the driver presses init.
     @Override
     public void init() {
-
-
 
         telemetry.addLine("Initializing hardware... do not press play!");
         telemetry.update();
@@ -38,17 +34,14 @@ public class TestOp extends OpMode {
     }
 
 
-    // Runs repeatedly after the driver presses init.
     @Override
     public void init_loop() {}
 
 
-    // Runs once when the driver presses start.
     @Override
     public void start() {}
 
 
-    // Runs repeatedly after the driver presses start.
     @Override
     public void loop() {
         // Handle speed modifiers
@@ -64,8 +57,17 @@ public class TestOp extends OpMode {
         hardware.leftDrive1.setPower(gamepad1.left_stick_y * driverSpeedMod);
         hardware.leftDrive2.setPower(gamepad1.left_stick_y * driverSpeedMod);
 
-        hardware.rightDrive1.setPower(gamepad1.right_stick_y * utilitySpeedMod);
-        hardware.rightDrive2.setPower(gamepad1.right_stick_y * utilitySpeedMod);
+        hardware.rightDrive1.setPower(gamepad1.right_stick_y * driverSpeedMod);
+        hardware.rightDrive2.setPower(gamepad1.right_stick_y * driverSpeedMod);
+
+        hardware.lifter.setPower(gamepad2.right_stick_y * utilitySpeedMod);
+
+        if(gamepad2.x)
+            hardware.particleServo.setPosition(0.3);
+        else if(gamepad2.y)
+            hardware.particleServo.setPosition(0.5);
+        else
+            hardware.particleServo.setPosition(0.4);
 
         // Update telemetry
         telemetry.addData("Runtime", getRuntime());

@@ -7,12 +7,13 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
  * Created by kawaiiPlat on 6/10/2017.
  */
 
-@Autonomous(name = "Test Autonomous", group = "Testing")
+@Autonomous(name = "Test Autonomous", group = "Autonomous")
 public class TestAutonomous extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
         telemetry.addLine("Press the play button when ready.");
+        telemetry.addLine("les go boyos.");
         telemetry.update();
 
         // Wait for the driver to press the play button.
@@ -26,7 +27,6 @@ public class TestAutonomous extends LinearOpMode {
 
         while(opModeIsActive()) {
             telemetry.addLine("In end loop.");
-            telemetry.addLine("PaulWuzHere");
             telemetry.update();
         }
     }

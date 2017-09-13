@@ -14,7 +14,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Created by kawaiiPlat on 7/29/2017.
  */
 
-public class BeetleBotHardware {
+public class DemoBot {
 
     // Motor objects
     public DcMotor leftDrive1   = null;
@@ -54,7 +54,7 @@ public class BeetleBotHardware {
 
 
     // Constructor
-    public BeetleBotHardware() {
+    public DemoBot() {
     }
 
 
