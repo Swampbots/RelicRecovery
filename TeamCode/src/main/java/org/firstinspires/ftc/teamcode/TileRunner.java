@@ -16,6 +16,14 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class TileRunner {
 
+    // Speed control variables
+    public final double SLOW    = 0.4;
+    public final double NORMAL  = 0.7;
+    public final double FAST    = 1.0;
+
+    double driverSpeedMod       = NORMAL;
+    double utilitySpeedMod      = NORMAL;
+
     // Motor objects
     public DcMotor leftDrive1   = null;
     public DcMotor leftDrive2   = null;
@@ -23,9 +31,6 @@ public class TileRunner {
     public DcMotor rightDrive1  = null;
     public DcMotor rightDrive2  = null;
 
-    public DcMotor shooter      = null;
-    public DcMotor snorfler     = null;
-    public DcMotor lifter       = null;
 
 
     // Servo objects
@@ -73,10 +78,6 @@ public class TileRunner {
         rightDrive1 = hwMap.dcMotor.get("ymotor1");
         rightDrive2 = hwMap.dcMotor.get("ymotor2");
 
-        shooter     = hwMap.dcMotor.get("utilitymotor1");
-        snorfler    = hwMap.dcMotor.get("utilitymotor2");
-        lifter      = hwMap.dcMotor.get("balllifter");
-
 
         // Get the servos
         particleServo   = hwMap.servo.get("particleservo");
@@ -96,19 +97,12 @@ public class TileRunner {
         colorSensor     = hwMap.colorSensor.get("colorsensor");
 
 
-
-
-
         // Set the motor directions
         leftDrive1.setDirection (DcMotorSimple.Direction.REVERSE);
         leftDrive2.setDirection (DcMotorSimple.Direction.REVERSE);
 
         rightDrive1.setDirection(DcMotorSimple.Direction.FORWARD);
         rightDrive2.setDirection(DcMotorSimple.Direction.FORWARD);
-
-        shooter.setDirection    (DcMotorSimple.Direction.FORWARD);
-        snorfler.setDirection   (DcMotorSimple.Direction.FORWARD);
-        lifter.setDirection     (DcMotorSimple.Direction.FORWARD);
 
 
         // Set the motor powers to zero
@@ -118,23 +112,12 @@ public class TileRunner {
         rightDrive1 .setPower(0);
         rightDrive2 .setPower(0);
 
-        shooter     .setPower(0);
-        snorfler    .setPower(0);
-        lifter      .setPower(0);
-
-
-
-
         // Set the motors to not use encoders
         leftDrive1.setMode  (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         leftDrive2.setMode  (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         rightDrive1.setMode (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightDrive2.setMode (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
-        shooter.setMode     (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        snorfler.setMode    (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        lifter.setMode      (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     /***

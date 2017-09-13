@@ -11,15 +11,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 public class TileRunnerTeleOp extends OpMode {
 
     // Hardware map initialization.
-    TileRunner hardware = new TileRunner();
-    // Speed modifer variables
-    double driverSpeedMod               = NORMAL;
-    double utilitySpeedMod              = NORMAL;
-
-    public static final double SLOW     = 0.4;
-    public static final double NORMAL   = 0.7;
-    public static final double FAST     = 1.0;
-
+    private TileRunner hardware = new TileRunner();
 
     @Override
     public void init() {
@@ -37,7 +29,6 @@ public class TileRunnerTeleOp extends OpMode {
     @Override
     public void init_loop() {}
 
-
     @Override
     public void start() {}
 
@@ -45,23 +36,23 @@ public class TileRunnerTeleOp extends OpMode {
     @Override
     public void loop() {
         // Handle speed modifiers
-        if(gamepad1.left_bumper)        driverSpeedMod = FAST;
-        else if(gamepad1.right_bumper)  driverSpeedMod = SLOW;
-        else                            driverSpeedMod = NORMAL;
+        if(gamepad1.left_bumper)        hardware.driverSpeedMod = hardware.FAST;
+        else if(gamepad1.right_bumper)  hardware.driverSpeedMod = hardware.SLOW;
+        else                            hardware.driverSpeedMod = hardware.NORMAL;
 
-        if(gamepad2.left_bumper)        utilitySpeedMod = FAST;
-        else if(gamepad2.right_bumper)  utilitySpeedMod = SLOW;
-        else                            utilitySpeedMod = NORMAL;
+        if(gamepad2.left_bumper)        hardware.utilitySpeedMod = hardware.FAST;
+        else if(gamepad2.right_bumper)  hardware.utilitySpeedMod = hardware.SLOW;
+        else                            hardware.utilitySpeedMod = hardware.NORMAL;
 
         // Handle drive motors
-        hardware.leftDrive1.setPower(gamepad1.left_stick_y * driverSpeedMod);
-        hardware.leftDrive2.setPower(gamepad1.left_stick_y * driverSpeedMod);
+        hardware.leftDrive1.setPower(gamepad1.left_stick_y * hardware.driverSpeedMod);
+        hardware.leftDrive2.setPower(gamepad1.left_stick_y * hardware.driverSpeedMod);
 
-        hardware.rightDrive1.setPower(gamepad1.right_stick_y * driverSpeedMod);
-        hardware.rightDrive2.setPower(gamepad1.right_stick_y * driverSpeedMod);
+        hardware.rightDrive1.setPower(gamepad1.right_stick_y * hardware.driverSpeedMod);
+        hardware.rightDrive2.setPower(gamepad1.right_stick_y * hardware.driverSpeedMod);
 
-        hardware.lifter.setPower(gamepad2.right_stick_y * utilitySpeedMod);
 
+        // Handle servos
         if(gamepad2.x)
             hardware.particleServo.setPosition(0.3);
         else if(gamepad2.y)
@@ -78,8 +69,8 @@ public class TileRunnerTeleOp extends OpMode {
         telemetry.addData("Front touch sensor", hardware.frontTouch);
         telemetry.addData("Debug touch sensor", hardware.debugTouch);
         telemetry.addLine();
-        telemetry.addData("Driver Speed Mod",  driverSpeedMod);
-        telemetry.addData("Utility Speed Mod",  utilitySpeedMod);
+        telemetry.addData("Driver Speed Mod",  hardware.driverSpeedMod);
+        telemetry.addData("Utility Speed Mod",  hardware.utilitySpeedMod);
         telemetry.addLine();
         telemetry.addData("Blue", hardware.colorSensor.blue());
         telemetry.addData("Red", hardware.colorSensor.red());
