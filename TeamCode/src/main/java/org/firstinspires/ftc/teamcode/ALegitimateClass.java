@@ -12,7 +12,6 @@ public class ALegitimateClass extends OpMode {
 
     // Hardware map initialization.
     ALegitimateHardwareClass hardware = new ALegitimateHardwareClass();
-
     // Speed modifer variables
     double driverSpeedMod               = NORMAL;
     double utilitySpeedMod              = NORMAL;
@@ -22,7 +21,6 @@ public class ALegitimateClass extends OpMode {
     public static final double FAST     = 1.0;
 
 
-    // Runs once when the driver presses init.
     @Override
     public void init() {
 
@@ -36,17 +34,14 @@ public class ALegitimateClass extends OpMode {
     }
 
 
-    // Runs repeatedly after the driver presses init.
     @Override
     public void init_loop() {}
 
 
-    // Runs once when the driver presses start.
     @Override
     public void start() {}
 
 
-    // Runs repeatedly after the driver presses start.
     @Override
     public void loop() {
         // Handle speed modifiers

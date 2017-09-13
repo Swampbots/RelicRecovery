@@ -45,7 +45,6 @@ public class CapLift extends OpMode {
         hardware.capLifter.setPower(gamepad2.right_stick_y * utilitySpeedMod);
 
         telemetry.addData("Cap Lifter power", hardware.capLifter.getPower());
+        telemetry.update();
     }
-
-
 }
