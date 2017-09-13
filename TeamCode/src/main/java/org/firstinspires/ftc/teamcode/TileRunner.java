@@ -146,12 +146,12 @@ public class TileRunner {
         leftPower = ((leftStickY + leftDrive1.getPower()) / 2);
         rightPower = ((rightStickY + rightDrive1.getPower()) / 2);
 
-        if( (leftPower / leftStickY ) >= POWER_THRESHOLD) {
+        if( (leftPower / leftStickY ) <= POWER_THRESHOLD) {
             leftDrive1.setPower(leftPower);
             leftDrive2.setPower(leftPower);
         }
 
-        if( (rightPower / rightStickY ) >= POWER_THRESHOLD) {
+        if( (rightPower / rightStickY ) <= POWER_THRESHOLD) {
             rightDrive1.setPower(rightPower);
             rightDrive2.setPower(rightPower);
         }
