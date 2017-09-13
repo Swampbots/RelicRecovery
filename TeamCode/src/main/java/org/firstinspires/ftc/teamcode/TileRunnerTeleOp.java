@@ -58,7 +58,7 @@ public class TileRunnerTeleOp extends OpMode {
         else if(gamepad2.y)
             hardware.particleServo.setPosition(0.5);
         else
-            hardware.particleServo.setPosition(0.4);
+            //hardware.particleServo.setPosition(0.4);
 
         // Update telemetry
         telemetry.addData("Runtime", getRuntime());
