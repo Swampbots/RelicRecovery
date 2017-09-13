@@ -13,6 +13,7 @@ public class ALegitimateAutonomous extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         telemetry.addLine("Press the play button when ready.");
+        telemetry.addLine("les go bois.");
         telemetry.update();
 
         // Wait for the driver to press the play button.
