@@ -46,7 +46,7 @@ public class TileRunnerTeleOp extends OpMode {
         // Handle drive motors
         hardware.rampDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
 
-        hardware.lifter.setPower(gamepad2.left_stick_y);
+        hardware.lifter.setPower(gamepad2.left_stick_y * hardware.utilitySpeedMod);
 
 //        hardware.leftDrive1.setPower(gamepad1.left_stick_y * hardware.driverSpeedMod);
 //        hardware.leftDrive2.setPower(gamepad1.left_stick_y * hardware.driverSpeedMod);
@@ -64,8 +64,6 @@ public class TileRunnerTeleOp extends OpMode {
             //hardware.particleServo.setPosition(0.4);
 
         // Update telemetry
-        telemetry.addData("Runtime", getRuntime());
-        telemetry.addLine();
         telemetry.addData("Left ODS", hardware.leftODS.getLightDetected());
         telemetry.addData("RIght ODS", hardware.rightODS.getLightDetected());
         telemetry.addLine();
