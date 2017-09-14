@@ -46,6 +46,9 @@ public class TileRunner {
     public DcMotor rightDrive1  = null;
     public DcMotor rightDrive2  = null;
 
+    public DcMotor lifter       = null;
+
+
 
 
     // Servo objects
@@ -93,6 +96,8 @@ public class TileRunner {
         rightDrive1 = hwMap.dcMotor.get("ymotor1");
         rightDrive2 = hwMap.dcMotor.get("ymotor2");
 
+        lifter      = hwMap.dcMotor.get("lifter");
+
 
         // Get the servos
         particleServo   = hwMap.servo.get("particleservo");
@@ -119,13 +124,18 @@ public class TileRunner {
         rightDrive1.setDirection(DcMotorSimple.Direction.FORWARD);
         rightDrive2.setDirection(DcMotorSimple.Direction.FORWARD);
 
+        lifter.setDirection     (DcMotorSimple.Direction.FORWARD);
+
 
         // Set the motor powers to zero
-        leftDrive1  .setPower(0);
-        leftDrive2  .setPower(0);
+        leftDrive1.setPower(0);
+        leftDrive2.setPower(0);
 
-        rightDrive1 .setPower(0);
-        rightDrive2 .setPower(0);
+        rightDrive1.setPower(0);
+        rightDrive2.setPower(0);
+
+        lifter.setPower(0);
+
 
         // Set the motors to not use encoders
         leftDrive1.setMode  (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -133,11 +143,13 @@ public class TileRunner {
 
         rightDrive1.setMode (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightDrive2.setMode (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        lifter.setMode      (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
 
     /////////////////////////////////////
-    // TeleOp variables
+    // TeleOp methods
     /////////////////////////////////////
 
 
@@ -146,12 +158,14 @@ public class TileRunner {
         leftPower = ((leftStickY + leftDrive1.getPower()) / 2);
         rightPower = ((rightStickY + rightDrive1.getPower()) / 2);
 
-        if( (leftPower / leftStickY ) <= POWER_THRESHOLD) {
+        if( (leftPower / leftStickY ) <= POWER_THRESHOLD ||
+                (leftPower / leftStickY ) >= -POWER_THRESHOLD) {
             leftDrive1.setPower(leftPower);
             leftDrive2.setPower(leftPower);
         }
 
-        if( (rightPower / rightStickY ) <= POWER_THRESHOLD) {
+        if( (rightPower / rightStickY ) <= POWER_THRESHOLD ||
+                (rightPower / rightStickY ) >= POWER_THRESHOLD) {
             rightDrive1.setPower(rightPower);
             rightDrive2.setPower(rightPower);
         }
