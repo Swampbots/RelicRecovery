@@ -15,7 +15,6 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  */
 
 public class TileRunner {
-
     // Speed control variables
     public final double SLOW    = 0.4;
     public final double NORMAL  = 0.7;
@@ -49,11 +48,8 @@ public class TileRunner {
     public DcMotor lifter       = null;
 
 
-
-
     // Servo objects
-    public Servo particleServo      = null;
-    public Servo frontTouchServo    = null;
+    public Servo gripperServo   = null;
 
 
     // Sensor objects
@@ -100,9 +96,7 @@ public class TileRunner {
 
 
         // Get the servos
-        particleServo   = hwMap.servo.get("particleservo");
-        frontTouchServo = hwMap.servo.get("fronttouchservo");
-
+        gripperServo   = hwMap.servo.get("gripperservo");
 
         // Get the sensors
         frontTouch      = hwMap.touchSensor.get("fronttouch");
@@ -154,7 +148,6 @@ public class TileRunner {
 
 
     public void rampDrive(float leftStickY, float rightStickY) {
-
         leftPower = ((leftStickY + leftDrive1.getPower()) / 2);
         rightPower = ((rightStickY + rightDrive1.getPower()) / 2);
 
@@ -204,7 +197,6 @@ public class TileRunner {
      * @param periodMs  Length of wait cycle in mSec.
      */
     public void waitForTick(long periodMs) {
-
         long  remaining = periodMs - (long)elapsedTime.milliseconds();
 
         // sleep for the remaining portion of the regular cycle period.

@@ -9,7 +9,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @Autonomous(name = "Test Autonomous", group = "Autonomous")
 public class TestAutonomous extends LinearOpMode {
-
     @Override
     public void runOpMode() throws InterruptedException {
         telemetry.addLine("Press the play button when ready.");

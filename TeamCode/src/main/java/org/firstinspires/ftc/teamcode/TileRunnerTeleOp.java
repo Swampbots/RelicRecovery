@@ -9,13 +9,11 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp(name = "Driver Control", group = "TeleOp")
 public class TileRunnerTeleOp extends OpMode {
-
     // Hardware map initialization.
     private TileRunner hardware = new TileRunner();
 
     @Override
     public void init() {
-
         telemetry.addLine("Initializing hardware... do not press play!");
         telemetry.update();
 
@@ -57,15 +55,15 @@ public class TileRunnerTeleOp extends OpMode {
 
         // Handle servos
         if(gamepad2.x)
-            hardware.particleServo.setPosition(0.2);
+            hardware.gripperServo.setPosition(0.2);
         else if(gamepad2.y)
-            hardware.particleServo.setPosition(0.6);
+            hardware.gripperServo.setPosition(0.6);
         else;
             //hardware.particleServo.setPosition(0.4);
 
         // Update telemetry
         telemetry.addData("Left ODS", hardware.leftODS.getLightDetected());
-        telemetry.addData("RIght ODS", hardware.rightODS.getLightDetected());
+        telemetry.addData("Right ODS", hardware.rightODS.getLightDetected());
         telemetry.addLine();
         telemetry.addData("Front touch sensor", hardware.frontTouch);
         telemetry.addData("Debug touch sensor", hardware.debugTouch);
