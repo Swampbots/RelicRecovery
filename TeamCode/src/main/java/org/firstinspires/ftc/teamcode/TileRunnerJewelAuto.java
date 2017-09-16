@@ -24,7 +24,8 @@ public class TileRunnerJewelAuto extends LinearOpMode {
         waitForStart();
 
         while(opModeIsActive()) {
-            telemetry.addLine("Finished.\nIn loop.");
+            telemetry.addLine("Finished.");
+            telemetry.addLine("In loop.");
             telemetry.update();
         }
 
