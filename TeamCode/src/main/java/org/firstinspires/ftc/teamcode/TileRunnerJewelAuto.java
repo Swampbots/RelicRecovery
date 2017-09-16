@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
  */
 
 @Autonomous(name = "Jewel Test", group = "Autonomous")
-public class TRJewelAuto extends LinearOpMode {
+public class TileRunnerJewelAuto extends LinearOpMode {
     TileRunner hardware  = new TileRunner();
 
     public void runOpMode() {
