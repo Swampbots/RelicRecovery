@@ -16,6 +16,13 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class DemoBot {
 
+    // Speed modifier variables
+    double driverSpeedMod               = NORMAL;
+    double utilitySpeedMod              = NORMAL;
+    public static final double SLOW     = 0.4;
+    public static final double NORMAL   = 0.7;
+    public static final double FAST     = 1.0;
+
     // Motor objects
     public DcMotor leftDrive1   = null;
     public DcMotor rightDrive1  = null;
