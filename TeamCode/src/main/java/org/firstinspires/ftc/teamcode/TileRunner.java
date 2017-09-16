@@ -19,15 +19,15 @@ public class TileRunner {
     public final double SLOW    = 0.4;
     public final double NORMAL  = 0.7;
     public final double FAST    = 1.0;
-    private final double POWER_THRESHOLD = 0.95;
+    public final double POWER_THRESHOLD = 0.95;
 
 //    public final double POWER_CONVERSION = 10.0;
 
     public double driverSpeedMod       = NORMAL;
     public double utilitySpeedMod      = NORMAL;
 
-    private double leftPower = 0;
-    private double rightPower = 0;
+    public double leftPower = 0;
+    public double rightPower = 0;
 
 //    private double leftPrevMotorInput = 0;
 //    private double rightPrevMotorInput = 0;

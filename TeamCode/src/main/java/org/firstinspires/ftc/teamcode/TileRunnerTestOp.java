@@ -42,8 +42,22 @@ public class TileRunnerTestOp extends OpMode {
         else                            hardware.utilitySpeedMod = hardware.NORMAL;
 
         // Handle drive motors
-        hardware.rampDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
+        hardware.leftPower = ((gamepad2.left_stick_y + hardware.leftDrive1.getPower()) / 2);
+        hardware.rightPower = ((gamepad2.right_stick_y + hardware.rightDrive1.getPower()) / 2);
 
+        if( (hardware.leftPower / gamepad2.left_stick_y) <= hardware.POWER_THRESHOLD ||
+                (hardware.leftPower / gamepad2.left_stick_y) >= -hardware.POWER_THRESHOLD) {
+            hardware.leftDrive1.setPower(hardware.leftPower);
+            hardware.leftDrive2.setPower(hardware.leftPower);
+        }
+
+        if( (hardware.rightPower / gamepad2.right_stick_y) <= hardware.POWER_THRESHOLD ||
+                (hardware.rightPower / gamepad2.right_stick_y) >= hardware.POWER_THRESHOLD) {
+            hardware.rightDrive1.setPower(hardware.rightPower);
+            hardware.rightDrive2.setPower(hardware.rightPower);
+        }
+
+        // Handle utility motors
         hardware.lifter.setPower(gamepad2.left_stick_y * hardware.utilitySpeedMod);
 
         // Handle servos
@@ -51,7 +65,7 @@ public class TileRunnerTestOp extends OpMode {
             hardware.gripperServo.setPosition(0.2);
         else if(gamepad2.y)
             hardware.gripperServo.setPosition(0.6);
-        else
+        else;
 
         // Update telemetry
         telemetry.addData("Driver Speed Mod",  hardware.driverSpeedMod);
