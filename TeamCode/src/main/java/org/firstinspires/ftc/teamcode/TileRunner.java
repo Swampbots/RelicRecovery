@@ -120,7 +120,7 @@ public class TileRunner {
         rightDrive1.setDirection(DcMotorSimple.Direction.FORWARD);
         rightDrive2.setDirection(DcMotorSimple.Direction.FORWARD);
 
-        lifter.setDirection     (DcMotorSimple.Direction.FORWARD);
+        lifter.setDirection     (DcMotorSimple.Direction.REVERSE);
 
 
         // Set the motor powers to zero
