@@ -62,8 +62,6 @@ public class DemoBotTeleOp extends OpMode {
         telemetry.addData("Driver Speed Mod",  hardware.driverSpeedMod);
         telemetry.addData("Utility Speed Mod",  hardware.utilitySpeedMod);
         telemetry.addLine();
-        telemetry.addData("Touch sensor", hardware.debugTouch.isPressed());
-        telemetry.addLine();
         telemetry.addData("Red", hardware.colorSensor.red());
         telemetry.addData("Blue", hardware.colorSensor.blue());
         telemetry.addData("Green", hardware.colorSensor.green());

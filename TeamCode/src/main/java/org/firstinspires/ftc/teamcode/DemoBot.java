@@ -28,28 +28,9 @@ public class DemoBot {
     public DcMotor leftDrive1   = null;
     public DcMotor rightDrive1  = null;
 
-//    public DcMotor shooter      = null;
-//    public DcMotor snorfler     = null;
-//    public DcMotor lifter       = null;
 
-
-    // Servo objects
-//    public Servo particleServo      = null;
-//    public Servo frontTouchServo    = null;
-
-
-    // Sensor objects
-//    public TouchSensor frontTouch           = null;
-    public DigitalChannel debugTouch        = null;
-//
-//    public AnalogInput sparkfunLeft         = null;
-//    public AnalogInput sparkfunRight        = null;
-//
-//    public OpticalDistanceSensor leftODS    = null;
-//    public OpticalDistanceSensor rightODS   = null;
-//    public OpticalDistanceSensor testODS     = null;
-//
-    public ColorSensor colorSensor          = null;
+    // Sensor Objects
+    public ColorSensor colorSensor  = null;
 
 
     // Hardware map
@@ -76,64 +57,24 @@ public class DemoBot {
         leftDrive1  = hwMap.dcMotor.get("xmotor1");
         rightDrive1 = hwMap.dcMotor.get("ymotor1");
 
-//        shooter     = hwMap.dcMotor.get("utilitymotor1");
-//        snorfler    = hwMap.dcMotor.get("utilitymotor2");
-//        lifter      = hwMap.dcMotor.get("balllifter");
 
-//        // Get the servos
-//        particleServo   = hwMap.servo.get("particleservo");
-//        frontTouchServo = hwMap.servo.get("fronttouchservo");
-//
-//
-//        // Get the sensors
-//        frontTouch      = hwMap.touchSensor.get("fronttouch");
-        debugTouch      = hwMap.digitalChannel.get("debugtouch");
-//
-//        sparkfunLeft    = hwMap.analogInput.get("sparkfunLightSensor1");
-//        sparkfunRight   = hwMap.analogInput.get("sparkfunLightSensor2");
-//
-//        leftODS         = hwMap.opticalDistanceSensor.get("leftODS");
-//        rightODS        = hwMap.opticalDistanceSensor.get("rightODS");
-//        testODS         = hwMap.opticalDistanceSensor.get("testODS");
-//
+        // Get the sensors
         colorSensor     = hwMap.colorSensor.get("colorsensor");
-
-
-
-
-
 
 
         // Set the motor directions
         leftDrive1.setDirection (DcMotorSimple.Direction.REVERSE);
-
         rightDrive1.setDirection(DcMotorSimple.Direction.FORWARD);
-
-//        shooter.setDirection    (DcMotorSimple.Direction.FORWARD);
-//        snorfler.setDirection   (DcMotorSimple.Direction.FORWARD);
-//        lifter.setDirection     (DcMotorSimple.Direction.FORWARD);
 
 
         // Set the motor powers to zero
         leftDrive1  .setPower(0);
-
         rightDrive1 .setPower(0);
-
-//        shooter     .setPower(0);
-//        snorfler    .setPower(0);
-//        lifter      .setPower(0);
-
-
 
 
         // Set the motors to not use encoders
         leftDrive1.setMode  (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
         rightDrive1.setMode (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
-//        shooter.setMode     (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-//        snorfler.setMode    (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-//        lifter.setMode      (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     /***
