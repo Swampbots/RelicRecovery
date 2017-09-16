@@ -61,7 +61,6 @@ public class DemoBotTeleOp extends OpMode {
 
         // Handle drive motors
         hardware.leftDrive1.setPower(gamepad1.left_stick_y * driverSpeedMod);
-
         hardware.rightDrive1.setPower(gamepad1.right_stick_y * utilitySpeedMod);
 
         // Update telemetry
@@ -72,7 +71,9 @@ public class DemoBotTeleOp extends OpMode {
         telemetry.addLine();
         telemetry.addData("Touch sensor", hardware.debugTouch.isPressed());
         telemetry.addLine();
-        telemetry.addData("Test ODS", hardware.testODS.getLightDetected());
+        telemetry.addData("Red", hardware.colorSensor.red());
+        telemetry.addData("Blue", hardware.colorSensor.blue());
+        telemetry.addData("Green", hardware.colorSensor.green());
 
     }
 }

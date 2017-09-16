@@ -18,7 +18,6 @@ public class DemoBot {
 
     // Motor objects
     public DcMotor leftDrive1   = null;
-
     public DcMotor rightDrive1  = null;
 
 //    public DcMotor shooter      = null;
@@ -26,12 +25,12 @@ public class DemoBot {
 //    public DcMotor lifter       = null;
 
 
-//    // Servo objects
+    // Servo objects
 //    public Servo particleServo      = null;
 //    public Servo frontTouchServo    = null;
-//
-//
-//    // Sensor objects
+
+
+    // Sensor objects
 //    public TouchSensor frontTouch           = null;
     public TouchSensor debugTouch           = null;
 //
@@ -40,9 +39,9 @@ public class DemoBot {
 //
 //    public OpticalDistanceSensor leftODS    = null;
 //    public OpticalDistanceSensor rightODS   = null;
-    public OpticalDistanceSensor testODS     = null;
+//    public OpticalDistanceSensor testODS     = null;
 //
-//    public ColorSensor colorSensor          = null;
+    public ColorSensor colorSensor          = null;
 
 
     // Hardware map
@@ -67,7 +66,6 @@ public class DemoBot {
 
         // Get the motors
         leftDrive1  = hwMap.dcMotor.get("xmotor1");
-
         rightDrive1 = hwMap.dcMotor.get("ymotor1");
 
 //        shooter     = hwMap.dcMotor.get("utilitymotor1");
@@ -88,9 +86,9 @@ public class DemoBot {
 //
 //        leftODS         = hwMap.opticalDistanceSensor.get("leftODS");
 //        rightODS        = hwMap.opticalDistanceSensor.get("rightODS");
-        testODS         = hwMap.opticalDistanceSensor.get("testODS");
+//        testODS         = hwMap.opticalDistanceSensor.get("testODS");
 //
-//        colorSensor     = hwMap.colorSensor.get("colorsensor");
+        colorSensor     = hwMap.colorSensor.get("colorsensor");
 
 
 
