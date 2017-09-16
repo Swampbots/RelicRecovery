@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.hardware.AnalogInput;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -17,11 +18,11 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class DemoBot {
 
     // Speed modifier variables
-    double driverSpeedMod               = NORMAL;
-    double utilitySpeedMod              = NORMAL;
-    public static final double SLOW     = 0.4;
-    public static final double NORMAL   = 0.7;
-    public static final double FAST     = 1.0;
+    public final double SLOW     = 0.4;
+    public final double NORMAL   = 0.7;
+    public final double FAST     = 1.0;
+    double driverSpeedMod        = NORMAL;
+    double utilitySpeedMod       = NORMAL;
 
     // Motor objects
     public DcMotor leftDrive1   = null;
@@ -39,7 +40,7 @@ public class DemoBot {
 
     // Sensor objects
 //    public TouchSensor frontTouch           = null;
-    public TouchSensor debugTouch           = null;
+    public DigitalChannel debugTouch        = null;
 //
 //    public AnalogInput sparkfunLeft         = null;
 //    public AnalogInput sparkfunRight        = null;
@@ -86,7 +87,7 @@ public class DemoBot {
 //
 //        // Get the sensors
 //        frontTouch      = hwMap.touchSensor.get("fronttouch");
-        debugTouch      = hwMap.touchSensor.get("debugtouch");
+        debugTouch      = hwMap.digitalChannel.get("debugtouch");
 //
 //        sparkfunLeft    = hwMap.analogInput.get("sparkfunLightSensor1");
 //        sparkfunRight   = hwMap.analogInput.get("sparkfunLightSensor2");
