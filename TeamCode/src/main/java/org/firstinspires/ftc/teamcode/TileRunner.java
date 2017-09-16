@@ -165,6 +165,7 @@ public class TileRunner {
             rightDrive2.setPower(rightPower);
         }
 
+        // Linear ramp acceleration
 //        if(leftStickY > leftPrevMotorInput) {
 //            leftStep ++;
 //        } else if(leftStickY < leftPrevMotorInput) {
