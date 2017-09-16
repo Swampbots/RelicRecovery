@@ -50,19 +50,20 @@ public class TileRunner {
 
     // Servo objects
     public Servo gripperServo   = null;
+    public Servo jewelServo     = null;
 
 
     // Sensor objects
-    public TouchSensor frontTouch           = null;
-    public TouchSensor debugTouch           = null;
-
-    public AnalogInput sparkfunLeft         = null;
-    public AnalogInput sparkfunRight        = null;
-
-    public OpticalDistanceSensor leftODS    = null;
-    public OpticalDistanceSensor rightODS   = null;
-
-    public ColorSensor colorSensor          = null;
+//    public TouchSensor frontTouch           = null;
+//    public TouchSensor debugTouch           = null;
+//
+//    public AnalogInput sparkfunLeft         = null;
+//    public AnalogInput sparkfunRight        = null;
+//
+//    public OpticalDistanceSensor leftODS    = null;
+//    public OpticalDistanceSensor rightODS   = null;
+//
+//    public ColorSensor colorSensor          = null;
 
 
     // Hardware map
@@ -96,19 +97,20 @@ public class TileRunner {
 
 
         // Get the servos
-        gripperServo   = hwMap.servo.get("gripperservo");
+        gripperServo    = hwMap.servo.get("gripperservo");
+        jewelServo      = hwMap.servo.get("jewelservo");
 
         // Get the sensors
-        frontTouch      = hwMap.touchSensor.get("fronttouch");
-        debugTouch      = hwMap.touchSensor.get("debugtouch");
-
-        sparkfunLeft    = hwMap.analogInput.get("sparkfunLightSensor1");
-        sparkfunRight   = hwMap.analogInput.get("sparkfunLightSensor2");
-
-        leftODS         = hwMap.opticalDistanceSensor.get("leftODS");
-        rightODS        = hwMap.opticalDistanceSensor.get("rightODS");
-
-        colorSensor     = hwMap.colorSensor.get("colorsensor");
+//        frontTouch      = hwMap.touchSensor.get("fronttouch");
+//        debugTouch      = hwMap.touchSensor.get("debugtouch");
+//
+//        sparkfunLeft    = hwMap.analogInput.get("sparkfunLightSensor1");
+//        sparkfunRight   = hwMap.analogInput.get("sparkfunLightSensor2");
+//
+//        leftODS         = hwMap.opticalDistanceSensor.get("leftODS");
+//        rightODS        = hwMap.opticalDistanceSensor.get("rightODS");
+//
+//        colorSensor     = hwMap.colorSensor.get("colorsensor");
 
 
         // Set the motor directions

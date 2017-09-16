@@ -24,7 +24,7 @@ public class TRJewelAuto extends LinearOpMode {
         waitForStart();
 
         while(opModeIsActive()) {
-            telemetry.addData();
+            telemetry.addLine("Finished.\nIn loop.");
             telemetry.update();
         }
 

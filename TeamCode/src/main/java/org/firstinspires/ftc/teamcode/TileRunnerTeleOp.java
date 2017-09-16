@@ -42,15 +42,15 @@ public class TileRunnerTeleOp extends OpMode {
         else                            hardware.utilitySpeedMod = hardware.NORMAL;
 
         // Handle drive motors
-        hardware.rampDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
+//        hardware.rampDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
 
         hardware.lifter.setPower(gamepad2.left_stick_y * hardware.utilitySpeedMod);
 
-//        hardware.leftDrive1.setPower(gamepad1.left_stick_y * hardware.driverSpeedMod);
-//        hardware.leftDrive2.setPower(gamepad1.left_stick_y * hardware.driverSpeedMod);
-//
-//        hardware.rightDrive1.setPower(gamepad1.right_stick_y * hardware.driverSpeedMod);
-//        hardware.rightDrive2.setPower(gamepad1.right_stick_y * hardware.driverSpeedMod);
+        hardware.leftDrive1.setPower(gamepad1.left_stick_y * hardware.driverSpeedMod);
+        hardware.leftDrive2.setPower(gamepad1.left_stick_y * hardware.driverSpeedMod);
+
+        hardware.rightDrive1.setPower(gamepad1.right_stick_y * hardware.driverSpeedMod);
+        hardware.rightDrive2.setPower(gamepad1.right_stick_y * hardware.driverSpeedMod);
 
 
         // Handle servos
@@ -62,17 +62,8 @@ public class TileRunnerTeleOp extends OpMode {
             //hardware.particleServo.setPosition(0.4);
 
         // Update telemetry
-        telemetry.addData("Left ODS", hardware.leftODS.getLightDetected());
-        telemetry.addData("Right ODS", hardware.rightODS.getLightDetected());
-        telemetry.addLine();
-        telemetry.addData("Front touch sensor", hardware.frontTouch);
-        telemetry.addData("Debug touch sensor", hardware.debugTouch);
-        telemetry.addLine();
         telemetry.addData("Driver Speed Mod",  hardware.driverSpeedMod);
         telemetry.addData("Utility Speed Mod",  hardware.utilitySpeedMod);
-        telemetry.addLine();
-        telemetry.addData("Blue", hardware.colorSensor.blue());
-        telemetry.addData("Red", hardware.colorSensor.red());
         telemetry.update();
     }
 }
