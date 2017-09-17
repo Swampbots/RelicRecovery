@@ -150,20 +150,27 @@ public class TileRunner {
 
 
     public void rampDrive(float leftStickY, float rightStickY) {
-        leftPower = ((leftStickY + leftDrive1.getPower()) / 2);
-        rightPower = ((rightStickY + rightDrive1.getPower()) / 2);
+        leftDrive1.setPower(leftStickY * leftStickY * leftStickY * driverSpeedMod);
+        leftDrive2.setPower(leftStickY * leftStickY * leftStickY * driverSpeedMod);
 
-        if( (leftPower / leftStickY ) <= POWER_THRESHOLD ||
-                (leftPower / leftStickY ) >= -POWER_THRESHOLD) {
-            leftDrive1.setPower(leftPower);
-            leftDrive2.setPower(leftPower);
-        }
+        rightDrive1.setPower(rightStickY * rightStickY * rightStickY * driverSpeedMod);
+        rightDrive2.setPower(rightStickY * rightStickY * rightStickY * driverSpeedMod);
 
-        if( (rightPower / rightStickY ) <= POWER_THRESHOLD ||
-                (rightPower / rightStickY ) >= POWER_THRESHOLD) {
-            rightDrive1.setPower(rightPower);
-            rightDrive2.setPower(rightPower);
-        }
+        // Half step acceleration
+//        leftPower = ((leftStickY + leftDrive1.getPower()) / 2);
+//        rightPower = ((rightStickY + rightDrive1.getPower()) / 2);
+//
+//        if( (leftPower / leftStickY ) <= POWER_THRESHOLD ||
+//                (leftPower / leftStickY ) >= -POWER_THRESHOLD) {
+//            leftDrive1.setPower(leftPower);
+//            leftDrive2.setPower(leftPower);
+//        }
+//
+//        if( (rightPower / rightStickY ) <= POWER_THRESHOLD ||
+//                (rightPower / rightStickY ) >= POWER_THRESHOLD) {
+//            rightDrive1.setPower(rightPower);
+//            rightDrive2.setPower(rightPower);
+//        }
 
         // Linear ramp acceleration
 //        if(leftStickY > leftPrevMotorInput) {
