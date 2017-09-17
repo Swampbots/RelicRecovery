@@ -51,7 +51,7 @@ public class TileRunnerTestOp extends OpMode {
         if(gamepad2.x)
             hardware.gripperServo.setPosition(0.2);
         else if(gamepad2.y)
-            hardware.gripperServo.setPosition(0.6);
+            hardware.gripperServo.setPosition(1.0);
         else;
 
         // Update telemetry
