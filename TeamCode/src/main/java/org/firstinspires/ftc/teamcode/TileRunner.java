@@ -20,6 +20,7 @@ public class TileRunner {
     public final double NORMAL  = 0.4;
     public final double FAST    = 1.0;
 //    public final double POWER_THRESHOLD = 0.95;
+
     public final double DECEL_STEP = 0.05;
 
 //    public final double POWER_CONVERSION = 10.0;
@@ -133,6 +134,14 @@ public class TileRunner {
 
         lifter.setPower(0);
 
+        // Set the behavior of the motors when the power is set to zero.
+        leftDrive1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        leftDrive2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+
+        rightDrive1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        rightDrive2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+
+        lifter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         // Set the motors to not use encoders
         leftDrive1.setMode  (DcMotor.RunMode.RUN_WITHOUT_ENCODER);
