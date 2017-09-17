@@ -158,7 +158,7 @@ public class TileRunner {
         } else setRightPower(rightStickY);
     }
 
-    public void linearDrive(float leftStickY, float rightStickY) {
+        public void linearDrive(float leftStickY, float rightStickY) {
         setLeftPower(leftStickY);
         setRightPower(rightStickY);
     }
