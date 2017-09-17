@@ -16,18 +16,18 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class TileRunner {
     // Speed control variables
-    public final double SLOW    = 0.4;
-    public final double NORMAL  = 0.7;
+    public final double SLOW    = 0.25;
+    public final double NORMAL  = 0.4;
     public final double FAST    = 1.0;
-    public final double POWER_THRESHOLD = 0.95;
+//    public final double POWER_THRESHOLD = 0.95;
 
 //    public final double POWER_CONVERSION = 10.0;
 
     public double driverSpeedMod       = NORMAL;
     public double utilitySpeedMod      = NORMAL;
 
-    public double leftPower = 0;
-    public double rightPower = 0;
+//    public double leftPower = 0;
+//    public double rightPower = 0;
 
 //    private double leftPrevMotorInput = 0;
 //    private double rightPrevMotorInput = 0;
