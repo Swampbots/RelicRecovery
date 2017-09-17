@@ -42,7 +42,8 @@ public class TileRunnerTestOp extends OpMode {
         else                            hardware.utilitySpeedMod = hardware.NORMAL;
 
         // Handle drive motors
-        hardware.rampDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
+        //hardware.rampDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
+        hardware.linearDriveDecel(gamepad1.left_stick_y, gamepad1.right_stick_y);
 
         // Handle utility motors
         hardware.lifter.setPower(gamepad2.left_stick_y * hardware.utilitySpeedMod);

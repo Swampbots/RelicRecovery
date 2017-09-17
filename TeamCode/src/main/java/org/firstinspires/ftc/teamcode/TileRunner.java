@@ -148,6 +148,31 @@ public class TileRunner {
     // TeleOp methods
     /////////////////////////////////////
 
+    public void linearDriveDecel(float leftStickY, float rightStickY) {
+        if(leftStickY == 0) {
+            setLeftPower((float) (leftDrive1.getPower() - 0.05));
+        } else setLeftPower(leftStickY);
+
+        if(rightStickY == 0) {
+            setRightPower((float) (rightDrive1.getPower() - 0.05));
+        } else setRightPower(rightStickY);
+    }
+
+    public void linearDrive(float leftStickY, float rightStickY) {
+        setLeftPower(leftStickY);
+        setRightPower(rightStickY);
+    }
+
+    public void setLeftPower(float leftStickY) {
+        leftDrive1.setPower(leftStickY * driverSpeedMod);
+        leftDrive2.setPower(leftStickY * driverSpeedMod);
+    }
+
+    public void setRightPower(float rightStickY) {
+        rightDrive1.setPower(rightStickY * driverSpeedMod);
+        rightDrive2.setPower(rightStickY * driverSpeedMod);
+    }
+
 
     public void rampDrive(float leftStickY, float rightStickY) {
         leftDrive1.setPower(leftStickY * leftStickY * leftStickY * driverSpeedMod);
