@@ -20,6 +20,7 @@ public class TileRunner {
     public final double NORMAL  = 0.4;
     public final double FAST    = 1.0;
 //    public final double POWER_THRESHOLD = 0.95;
+    public final double DECEL_STEP = 0.05;
 
 //    public final double POWER_CONVERSION = 10.0;
 
@@ -149,12 +150,22 @@ public class TileRunner {
     /////////////////////////////////////
 
     public void linearDriveDecel(float leftStickY, float rightStickY) {
-        if(leftStickY == 0) {
-            setLeftPower((float) (leftDrive1.getPower() - 0.05));
+        if(leftStickY == 0.0) {
+            if(leftDrive1.getPower() > DECEL_STEP) {
+                setLeftPower((float) (leftDrive1.getPower() - DECEL_STEP));
+            }
+            else if(leftDrive1.getPower() < DECEL_STEP) {
+                setLeftPower((float) (leftDrive1.getPower() + DECEL_STEP));
+            } else setLeftPower((float)0.0);
         } else setLeftPower(leftStickY);
 
-        if(rightStickY == 0) {
-            setRightPower((float) (rightDrive1.getPower() - 0.05));
+        if(rightStickY == 0.0) {
+            if(rightDrive1.getPower() > DECEL_STEP) {
+                setRightPower((float) (rightDrive1.getPower() - DECEL_STEP));
+            }
+            else if(rightDrive1.getPower() < DECEL_STEP) {
+                setRightPower((float) (rightDrive1.getPower() + DECEL_STEP));
+            } else setRightPower((float)0.0);
         } else setRightPower(rightStickY);
     }
 
