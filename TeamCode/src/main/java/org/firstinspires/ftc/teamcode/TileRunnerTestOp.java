@@ -1,13 +1,13 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 /**
  * Created by kawaiiPlat on 9/16/2017.
  */
 
-@Autonomous(name = "Tile Runner Test Op", group = "TeleOp")
+@TeleOp(name = "Tile Runner Test Op", group = "TeleOp")
 public class TileRunnerTestOp extends OpMode {
 
     private TileRunner hardware = new TileRunner();
