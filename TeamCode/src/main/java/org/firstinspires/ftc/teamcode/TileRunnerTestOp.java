@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  * Created by kawaiiPlat on 9/16/2017.
  */
 
-@TeleOp(name = "Tile Runner Test Op", group = "TeleOp")
+@TeleOp(name = "TileRunner Test Op", group = "TeleOp")
 public class TileRunnerTestOp extends OpMode {
 
     private TileRunner hardware = new TileRunner();
@@ -49,9 +49,9 @@ public class TileRunnerTestOp extends OpMode {
 
         // Handle servos
         if(gamepad2.x)
-            hardware.gripperServo.setPosition(0.2);
+            hardware.wheelIntake.setPosition(0.2);
         else if(gamepad2.y)
-            hardware.gripperServo.setPosition(1.0);
+            hardware.wheelIntake.setPosition(1.0);
         else;
 
         // Update telemetry

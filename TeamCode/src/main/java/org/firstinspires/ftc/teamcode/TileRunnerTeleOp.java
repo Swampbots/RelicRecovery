@@ -47,10 +47,14 @@ public class TileRunnerTeleOp extends OpMode {
 
 
         // Handle servos
-        if(gamepad2.x)
-            hardware.gripperServo.setPosition(0.2);
-        else if(gamepad2.y)
-            hardware.gripperServo.setPosition(1.0);
+        if(gamepad2.x) {
+            hardware.wheelIntake.setPosition(0.2);
+            hardware.wheelIntake2.setPosition(1.0);
+        }
+        else if(gamepad2.y) {
+            hardware.wheelIntake.setPosition(1.0);
+            hardware.wheelIntake2.setPosition(0.2);
+        }
         else;
             //hardware.particleServo.setPosition(0.4);
 

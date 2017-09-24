@@ -1,13 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.hardware.AnalogInput;
-import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.hardware.TouchSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
@@ -48,8 +44,8 @@ public class TileRunner {
 
 
     // Servo objects
-    public Servo gripperServo   = null;
-    public Servo jewelServo     = null;
+    public Servo wheelIntake   = null;
+    public Servo wheelIntake2 = null;
 
 
     // Sensor objects
@@ -96,8 +92,8 @@ public class TileRunner {
 
 
         // Get the servos
-        gripperServo    = hwMap.servo.get("gripperservo");
-        jewelServo      = hwMap.servo.get("jewelservo");
+        wheelIntake     = hwMap.servo.get("wheelintake");
+        wheelIntake2    = hwMap.servo.get("wheelintake2");
 
         // Get the sensors
 //        frontTouch      = hwMap.touchSensor.get("fronttouch");
