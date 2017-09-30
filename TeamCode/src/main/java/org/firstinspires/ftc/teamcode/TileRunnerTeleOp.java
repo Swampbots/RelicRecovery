@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 @TeleOp(name = "Driver Control", group = "TeleOp")
 public class TileRunnerTeleOp extends OpMode {
     // Hardware map initialization.
-    private TileRunnerMR hardware = new TileRunnerMR();
+    private TileRunnerREV hardware = new TileRunnerREV();
 
     @Override
     public void init() {
@@ -41,22 +41,9 @@ public class TileRunnerTeleOp extends OpMode {
         else if(gamepad2.right_bumper)  hardware.utilitySpeedMod = hardware.SLOW;
         else                            hardware.utilitySpeedMod = hardware.NORMAL;
 
-        hardware.lifter.setPower(gamepad2.left_stick_y * hardware.utilitySpeedMod);
+        hardware.wheelIntake.setPower(gamepad2.left_stick_y * hardware.utilitySpeedMod);
 
         hardware.linearDrive(gamepad1.left_stick_y, gamepad1.right_stick_y);
-
-
-        // Handle servos
-        if(gamepad2.x) {
-            hardware.wheelIntake.setPosition(0.2);
-            hardware.wheelIntake2.setPosition(1.0);
-        }
-        else if(gamepad2.y) {
-            hardware.wheelIntake.setPosition(1.0);
-            hardware.wheelIntake2.setPosition(0.2);
-        }
-        else;
-            //hardware.particleServo.setPosition(0.4);
 
         // Update telemetry
         telemetry.addData("Driver Speed Mod",  hardware.driverSpeedMod);
