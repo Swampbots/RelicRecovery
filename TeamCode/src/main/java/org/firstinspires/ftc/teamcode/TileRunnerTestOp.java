@@ -7,10 +7,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  * Created by kawaiiPlat on 9/16/2017.
  */
 
-@TeleOp(name = "TileRunner Test Op", group = "TeleOp")
+@TeleOp(name = "TileRunnerMR Test Op", group = "TeleOp")
 public class TileRunnerTestOp extends OpMode {
 
-    private TileRunner hardware = new TileRunner();
+    private TileRunnerMR hardware = new TileRunnerMR();
 
     @Override
     public void init() {

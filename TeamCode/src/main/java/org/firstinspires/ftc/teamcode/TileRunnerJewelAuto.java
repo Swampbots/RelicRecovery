@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @Autonomous(name = "Jewel Test", group = "Autonomous")
 public class TileRunnerJewelAuto extends LinearOpMode {
-    TileRunner hardware  = new TileRunner();
+    TileRunnerMR hardware  = new TileRunnerMR();
 
     public void runOpMode() {
         telemetry.addLine("Initializing hardware... do not press start!");

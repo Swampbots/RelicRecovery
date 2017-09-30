@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Created by kawaiiPlat on 6/10/2017.
  */
 
-public class TileRunner {
+public class TileRunnerMR {
     // Speed control variables
     public final double SLOW    = 0.25;
     public final double NORMAL  = 0.4;
@@ -44,8 +44,8 @@ public class TileRunner {
 
 
     // Servo objects
-    public Servo wheelIntake   = null;
-    public Servo wheelIntake2 = null;
+    public Servo wheelIntake    = null;
+    public Servo wheelIntake2   = null;
 
 
     // Sensor objects
@@ -70,7 +70,7 @@ public class TileRunner {
 
 
     // Constructor
-    public TileRunner() {
+    public TileRunnerMR() {
     }
 
 

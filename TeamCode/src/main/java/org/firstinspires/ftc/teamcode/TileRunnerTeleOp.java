@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 @TeleOp(name = "Driver Control", group = "TeleOp")
 public class TileRunnerTeleOp extends OpMode {
     // Hardware map initialization.
-    private TileRunner hardware = new TileRunner();
+    private TileRunnerMR hardware = new TileRunnerMR();
 
     @Override
     public void init() {
