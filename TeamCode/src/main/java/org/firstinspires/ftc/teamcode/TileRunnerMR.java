@@ -15,23 +15,11 @@ public class TileRunnerMR {
     public final double SLOW    = 0.25;
     public final double NORMAL  = 0.4;
     public final double FAST    = 1.0;
-//    public final double POWER_THRESHOLD = 0.95;
-//    public final double POWER_CONVERSION = 10.0;
+
 
     public double driverSpeedMod       = NORMAL;
     public double utilitySpeedMod      = NORMAL;
 
-//    public double leftPower = 0;
-//    public double rightPower = 0;
-
-//    private double leftPrevMotorInput = 0;
-//    private double rightPrevMotorInput = 0;
-//
-//    private double leftMotorInput = 0;
-//    private double rightMotorInput = 0;
-//
-//    private double leftStep = 0.0;
-//    private double rightStep = 0.0;
 
     // Motor objects
     public DcMotor leftDrive1   = null;
@@ -46,19 +34,6 @@ public class TileRunnerMR {
     // Servo objects
     public Servo wheelIntake    = null;
     public Servo wheelIntake2   = null;
-
-
-    // Sensor objects
-//    public TouchSensor frontTouch           = null;
-//    public TouchSensor debugTouch           = null;
-//
-//    public AnalogInput sparkfunLeft         = null;
-//    public AnalogInput sparkfunRight        = null;
-//
-//    public OpticalDistanceSensor leftODS    = null;
-//    public OpticalDistanceSensor rightODS   = null;
-//
-//    public ColorSensor colorSensor          = null;
 
 
     // Hardware map
@@ -94,18 +69,6 @@ public class TileRunnerMR {
         // Get the servos
         wheelIntake     = hwMap.servo.get("wheelintake");
         wheelIntake2    = hwMap.servo.get("wheelintake2");
-
-        // Get the sensors
-//        frontTouch      = hwMap.touchSensor.get("fronttouch");
-//        debugTouch      = hwMap.touchSensor.get("debugtouch");
-//
-//        sparkfunLeft    = hwMap.analogInput.get("sparkfunLightSensor1");
-//        sparkfunRight   = hwMap.analogInput.get("sparkfunLightSensor2");
-//
-//        leftODS         = hwMap.opticalDistanceSensor.get("leftODS");
-//        rightODS        = hwMap.opticalDistanceSensor.get("rightODS");
-//
-//        colorSensor     = hwMap.colorSensor.get("colorsensor");
 
 
         // Set the motor directions
@@ -173,47 +136,6 @@ public class TileRunnerMR {
 
         rightDrive1.setPower(rightStickY * rightStickY * rightStickY * driverSpeedMod);
         rightDrive2.setPower(rightStickY * rightStickY * rightStickY * driverSpeedMod);
-
-        // Half step acceleration
-//        leftPower = ((leftStickY + leftDrive1.getPower()) / 2);
-//        rightPower = ((rightStickY + rightDrive1.getPower()) / 2);
-//
-//        if( (leftPower / leftStickY ) <= POWER_THRESHOLD ||
-//                (leftPower / leftStickY ) >= -POWER_THRESHOLD) {
-//            leftDrive1.setPower(leftPower);
-//            leftDrive2.setPower(leftPower);
-//        }
-//
-//        if( (rightPower / rightStickY ) <= POWER_THRESHOLD ||
-//                (rightPower / rightStickY ) >= POWER_THRESHOLD) {
-//            rightDrive1.setPower(rightPower);
-//            rightDrive2.setPower(rightPower);
-//        }
-
-        // Linear ramp acceleration
-//        if(leftStickY > leftPrevMotorInput) {
-//            leftStep ++;
-//        } else if(leftStickY < leftPrevMotorInput) {
-//            leftStep --;
-//        }
-//
-//        if(rightStickY > rightPrevMotorInput) {
-//            rightStep ++;
-//        } else if(rightStickY < rightPrevMotorInput) {
-//            rightStep --;
-//        }
-//
-//        leftMotorInput = leftStep / POWER_CONVERSION;
-//        rightMotorInput = rightStep / POWER_CONVERSION;
-//
-//        leftPrevMotorInput = leftMotorInput;
-//        rightPrevMotorInput = rightMotorInput;
-//
-//        leftDrive1.setPower(leftMotorInput * driverSpeedMod);
-//        leftDrive2.setPower(leftMotorInput * driverSpeedMod);
-//
-//        rightDrive1.setPower(rightMotorInput * driverSpeedMod);
-//        rightDrive2.setPower(rightMotorInput * driverSpeedMod);
     }
 
     /***
